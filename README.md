@@ -64,3 +64,10 @@ Commands:
 
 ### Reindexing
 If the parameter `t` s present, the program starts a thread that runs indexing process when the index is older than `t` seconds. A time is counted from either last re-indexing on timeout or a manual re-index whichever is later. If the index was read from a file the last indexing time is set to the file modification time (this may trigger an immediate re-indexing after reading an old file).
+
+## Implementation
+
+To implement all of the features my program has I used:
++ `pthread` – a POSIX thread library for the concurrent indexing 
++ `mmap` – used to read and save indexing results to a file
++ `ftw` – library used to index the files
